@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <style>
+        .container {
+            width: 300px;
+            border: 1px solid Maroon;
+            border-radius: 20px;
+            display: block;
+            margin: 100px auto;
+            background-color: #cfe93d; }
+        .img-dice {
+            width: 200px;
+            display: block;
+            margin: 20px auto;}
+        .btn {
+            background-color: rgb(10, 77, 60);
+            color: white;
+            display: block;
+            margin: 20px auto;
+            font-size: 20px;
+            padding: 10px 40px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            margin-top: 30px;}
+        .text-center {
+            text-align: center;
+            color: rgb(238, 5, 5);}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Dice Roller</h1>
+        <img src="front-dice.png" class="img-dice" id="img-dice">
+        <button class="btn" onclick="rolldice()">Press</button>
+    </div>
+    <script>
+        function resetDice (){
+            const diceimg = document.getElementById('img-dice')
+            diceimg.src = 'front-dice.png';
+        }
+        function rolldice() {
+            const min = 1;
+            const max = 6;
+            const random = Math.round(Math.random() * (max - min)) + min;
+
+            const diceimg = document.getElementById('img-dice');
+            if (random == 1) {
+                diceimg.src = 'dice1.png';
+            }
+            else if (random == 2) {
+                diceimg.src = 'dice2.png';
+            } else if (random == 3) {
+                diceimg.src = 'dice3.png';
+            } else if (random == 4) {
+                diceimg.src = 'dice4.png';
+            } else if (random == 5) {
+                diceimg.src = 'dice5.png';
+            } else if (random == 6) {
+                diceimg.src = 'dice6.png';
+            }
+
+            setTimeout(resetDice , 3000)
+        }
+    </script>
+</body>
+</html>
